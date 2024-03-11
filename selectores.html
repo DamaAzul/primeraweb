@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="selectores.css" type="text/css">
+    <title>Selectores y reglas de estilo</title>
+    <style>
+        @import url("https://fonts.googleapis.com/css?family=Marcellus");
+    </style>
+</head>
+
+<body>
+    <h4>Agrupación de selectores</h4>
+    <section id="primera">
+        <p><i>El estilo afecta a todos los selectores seleccionados:</i></p>
+        <pre>h1, h2 {
+        color: blueviolet;
+            }</pre>
+        <hr>
+        <h1>H1: Lorem Ipsum</h1>
+        <p>P: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        <h2>H2: Lorem Ipsum</h2>
+        <p>P: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    </section>
+    <br />
+    <section id="segunda">
+        <i>El estilo afecta al selector 2 (p) que se encuentra dentro del selector 1 (div):</i>
+        <pre>div p {
+        background-color: pink;
+            }</pre>
+        <hr>
+        <h1>H1: Lorem Ipsum</h1>
+        <p>P: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        <div><b>DIV:</b>
+            <h2>H2: Lorem Ipsum</h2>
+            <p>P: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <b>/DIV</b>
+        </div>
+    </section>
+    <br />
+    <section id="tercera">
+        <p><i>El estilo afecta al selector 2 (p) que sea hijo del selector 1 (div):</i></p>
+        <pre>div>p {
+        background-color: green;
+            }</pre>
+        <hr>
+        <div><b>DIV:</b>
+            <h1>H1: Lorem Ipsum</h1>
+            <p>P: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <b>/DIV</b>
+        </div>
+        <h2>H2: Lorem Ipsum</h2>
+        <p>P: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    </section>
+    <br />
+    <section id="cuarta">
+        <p><i>El estilo afecta al selector2 (p) que se encuentra justo después del selector 1 (h2):</i></p>
+        <pre>h2+p {
+        background-color: aqua;
+            }</pre>
+        <hr>
+        <h1>H1: Lorem Ipsum</h1>
+        <p>P: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        <h2>H2: Lorem Ipsum</h2>
+        <p>P: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        <p>P: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    </section>
+    <br />
+    <section id="quinta">
+        <p><i>El estilo afecta al selector 2 (p) que se encuentra precediendo al selector 1 (div):</i></p>
+        <pre>div~p {
+        text-align: right;
+             }</pre>
+        <hr>
+        <div><b>DIV:</b>
+            <h1>H1: Lorem Ipsum</h1>
+            <p>P: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <b>/DIV</b>
+        </div>
+        <h2>H2: Lorem Ipsum</h2>
+        <p>P: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        <h3>H:3 Lorem Ipsum</h3>
+        <p>P: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    </section>
+    <h4>Selectores utilizando atributos</h4>
+    <section id="sexta">
+        <p><i>El estilo afecta a los elementos que tengan asignado un atributo específico "[is= _ ]" con el valor
+                especificado "importante":</i></p>
+        <pre>[is=importante] {
+            background-color: plum;
+            }</pre>
+        <hr>
+        <p is="importante">"importante" Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        </p>
+        <p>Mauris id elementum lorem, nec auctor ex.
+        </p>
+        <p is="importante">"importante" Donec tempor massa tempus consectetur venenatis.
+        </p>
+    </section>
+    <br>
+    <section id="septima">
+        <p><i>El estilo afecta a los elementos que tengan asignado un atributo específico "[title~= _ ]" que contenga el
+                valor especificado "estrella". En caso de que el valor se encuntre acompañado de otras palabras
+                separadas por espacio lo leerá,
+                pero
+                si estas se encuentran separadas con "-", al entenderse como una sola palabra ya no lo leería:</i></p>
+        <pre>[title~=estrella] {
+        border: 3px solid purple;
+            }</pre>
+        <hr>
+        <p title="estrella amarilla">"estrella amarilla" Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        </p>
+        <p title="estrella">"estrella" Mauris id elementum lorem, nec auctor ex.
+        </p>
+        <p title="estrella-fugaz">"estrella-fugaz" Donec tempor massa tempus consectetur venenatis.
+        </p>
+    </section>
+    <br>
+    <section id="octava">
+        <p><i>El estilo afecta a los elementos que tengan asignado un atributo específico "[title|= _ ]" que contenga el
+                valor especificado "cielo". En caso de que el valor se encuentre acompañado de otras palabras no lo
+                leerá,
+                por el contrario si estas se encuentran separadas por "-" sí lo hará:</i></p>
+        <pre>[title|=cielo] {
+        font-weight: bold;
+            }</pre>
+        <hr>
+        <p title="cielo">"cielo" Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        </p>
+        <p title="cielo azul">"cielo azul" Mauris id elementum lorem, nec auctor ex.
+        </p>
+        <p title="cielo-gris">"cielo-gris" Donec tempor massa tempus consectetur venenatis.
+        </p>
+    </section>
+    <br>
+    <section id="novena">
+        <p><i>El estilo afecta a los elementos que tengan asignado un atributo específico "[is^= _ ]", que contenga el
+                valor
+                seleccionado "luna" <u>al principio</u>, si se encuentra localizado en otra parte no lo lee:</i></p>
+        <pre>[is^=luna] {
+        border: 3px solid lightseagreen;
+            }</pre>
+        <hr>
+        <p is="media luna">"media luna" Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        </p>
+        <p is="luna llena">"<u>luna</u> llena" Mauris id elementum lorem, nec auctor ex.
+        </p>
+        <p is="primer luna">"primer luna" Donec tempor massa tempus consectetur venenatis.
+        </p>
+    </section>
+    <br>
+    <section id="decima">
+        <p><i>El estilo afecta a los elementos que tengan asignado un atributo específico "[class~= _ ]" que contenga el
+                valor
+                seleccionado "sol" <u>al final</u>, si se encuentra localizado en otra parte no lo lee:</i></p>
+        <pre>[class$=sol] {
+        border: 3px solid pink;
+            }</pre>
+        <hr>
+        <p class="sol grande">"sol grande" Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        </p>
+        <p class="mi sol">"mi <u>sol</u>" Mauris id elementum lorem, nec auctor ex.
+        </p>
+        <p class="sol-amarillo">"sol-amarillo" Donec tempor massa tempus consectetur venenatis.
+        </p>
+    </section>
+    <br>
+    <section id="undecima">
+        <p><i>El estilo afecta a todos los elementos que tengan asignado un atributo [class*= _ ] que contengan el valor
+                seleccionado "nube", sin importar su posición, ni si va a compañado de otras palabras, o separado por
+                espacio o guión:</i></p>
+        <pre>[class*=nube] {
+        border: 3px solid purple;
+            }</pre>
+        <hr>
+        <p class="nube gris">"nube gris" Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        </p>
+        <p class="la-nube">"la-nube" Mauris id elementum lorem, nec auctor ex.
+        </p>
+        <p class="nubeazul">"nubeazul" Donec tempor massa tempus consectetur venenatis.
+        </p>
+        <p class="nublado">"nublado" Sed a lorem non velit auctor ultrices.</p>
+    </section>
+
+    <h4>Pseudoelementos</h4>
+    <section>
+        <p><i>El estilo afecta a la primera letra de cada etiqueta, en este caso "p":</i></p>
+        <pre>p:first-letter {
+        background-color: aqua;
+            }</pre>
+        <hr>
+        <div id="duodecima">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            </p>
+            <p>Mauris id elementum lorem, nec auctor ex.
+            </p>
+            <p>Donec tempor massa tempus consectetur venenatis.
+            </p>
+        </div>
+    </section>
+    <br>
+    <section>
+        <p><i>El estilo afecta a la primera línea del elemento al que se aplica, en este caso "p":</i></p>
+        <pre>p:first-line {
+        background-color: pink;
+            }</pre>
+        <hr>
+        <div id="decimotercera">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eleifend porta magna in consequat.
+                Phasellus consectetur nec purus eget dapibus. Proin quis dolor in magna varius euismod. Vivamus rutrum
+                et magna in consequat. Fusce lectus neque, semper quis quam et, congue sagittis odio. Aliquam tempor
+                posuere commodo. Nullam quis congue lorem, vel sollicitudin urna. Proin ornare porttitor eros.
+            </p>
+        </div>
+    </section>
+    <br>
+    <section id="decimocuarta">
+        <p><i>El estilo afecta al primer hijo "h1" del elemento en cuestión "div":</i></p>
+        <pre>h1:first-child {
+        background-color: plum;
+            }</pre>
+        <hr>
+        <div>DIV:
+            <h1>h1: Lorem Ipsum</h1>
+            <h1>h1: Lorem Ipsum</h1>
+            /DIV
+        </div>
+    </section>
+    <br>
+    <section>
+        <p><i>Añade el contenido que se especifique delante del selector "p":</i></p>
+        <pre>p:before {
+        content: "principio";
+            }</pre>
+        <hr>
+        <div id="decimoquinta">
+            <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            </p>
+            <p> Mauris id elementum lorem, nec auctor ex.
+            </p>
+            <p> Donec tempor massa tempus consectetur venenatis.
+            </p>
+        </div>
+    </section>
+    <br>
+    <section>
+        <p><i>Añade el contenido que se especifique al final del selector "p":</i></p>
+        <pre>p:after {
+        content: final;
+            }</pre>
+        <hr>
+        <div id="decimosexta">
+            <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            </p>
+            <p> Mauris id elementum lorem, nec auctor ex.
+            </p>
+            <p> Donec tempor massa tempus consectetur venenatis.
+            </p>
+        </div>
+    </section>
+    <br>
+    <section>
+        <p><i>El estilo afecta al primer elemento del tipo del selector "p" que se encuentre en el mismo nivel, es decir
+                elementos hermanos:</i></p>
+        <pre>p:first-of-type {
+        background-color: pink;
+            }</pre>
+        <hr>
+        <div id="decimoseptima">
+            <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            </p>
+            <p> Mauris id elementum lorem, nec auctor ex.
+            </p>
+            <p> Donec tempor massa tempus consectetur venenatis.
+            </p>
+        </div>
+    </section>
+    <br>
+    <section id="decimooctava">
+        <p><i>El estilo afecta al último elemento del tipo del selector "p" que se encuentre en el mismo nivel, es decir
+                elementos hermanos:</i></p>
+        <pre>p:last-of-type {
+        background-color: pink;
+            }</pre>
+        <hr>
+        <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        </p>
+        <p> Mauris id elementum lorem, nec auctor ex.
+        </p>
+        <p> Donec tempor massa tempus consectetur venenatis.
+        </p>
+    </section>
+    <br>
+    <section id="decimonovena">
+        <p><i>El estilo afecta a los elementos que sean únicos dentro de un mismo nivel</i></p>
+        <pre>p:only-of-type {
+        background-color: aqua;
+            }</pre>
+        <hr>
+        <h3>H3: Lorem ipsum</h3>
+        <p>P: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        </p>
+        <p>P: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        </p>
+        <p><b>DIV</b></p>
+        <div>
+            <h3>H3: Lorem ipsum</h3>
+            <p>P: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            </p>
+        </div>
+        <p><b>/DIV</b></p>
+    </section>
+    <br>
+    <section id="vigesima">
+        <p><i>El estilo afecta a los elementos que son los únicos hijos del nivel en el que están encuadrados:</i></p>
+        <pre>p:only-child {
+        background-color: aqua;
+        }</pre>
+        <hr>
+        <p><b>DIV</b></p>
+        <div>
+            <p>P: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            </p>
+        </div>
+        <p><b>/DIV</b></p>
+        <p><b>DIV</b></p>
+        <div>
+            <p>P: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            </p>
+            <p>P: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            </p>
+        </div>
+        <p><b>/DIV</b></p>
+    </section>
+    <br>
+    <section>
+        <p><i>El estilo afecta al hijo que se determine, en este caso el 3º:</i></p>
+        <pre>:nth-child(3) {
+        background-color: aqua;
+        }</pre>
+        <hr>
+        <div id="vigesimoprimera">
+            <h3>(1r hijo) H3: Lorem ipsum</h3>
+            <p>(2º hijo) P: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            </p>
+            <p>(3r hijo) P: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            </p>
+            <p>(4º hijo) P: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            </p>
+        </div>
+    </section>
+    <br>
+    <section id="vigesimosegunda">
+        <p><i>El estilo afecta al atributo que sea el hijo del nivel que se determine, empezando por el último hijo, en
+                este caso el 3º:</i></p>
+        <pre>p:nth-last-of-type(3) {
+        background-color: aqua;
+        }</pre>
+        <hr>
+        <div>
+            <h3>H3: Lorem ipsum</h3>
+            <p>(3r hijo) P: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            </p>
+            <p>(2º hijo) P: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            </p>
+            <p>(1r hijo) P: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            </p>
+        </div>
+    </section>
+    <br>
+    <section id="vigesimotercera">
+        <p><i>El estilo afecta al atributo que sea el último hijo del nivel:</i></p>
+        <pre>p:last-child {
+        background-color: aqua;
+        }</pre>
+        <hr>
+        <h3>H3: Lorem ipsum</h3>
+        <p>(1r hijo) P: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        </p>
+        <p>(2º hijo) P: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        </p>
+        <p>(3r hijo) P: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        </p>
+    </section>
+    <h4>Otros selectores</h4>
+    <section id="vigesimocuarta">
+        <p><i>El estilo afecta a los elementos que no tienen elementos hijos:</i></p>
+        <pre>p:empty {
+        border: 3px solid plum;
+        }</pre>
+        <hr>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        </p>
+        <p></p>
+        <p>Donec tempor massa tempus consectetur venenatis.
+        </p>
+    </section>
+    <br>
+    <section>
+        <p><i>El estilo afecta a todos los elementos menos al seleccionado:</i></p>
+        <pre>:not(h3) {
+        background-color: violet;
+        }</pre>
+        <hr>
+        <div id="vigesimoquinta">
+            <h2>h2: Lorem ipsum</h2>
+            <h3>h3: Lorem ipsum</h3>
+            <p>p: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            </p>
+            <div>div: Donec tempor massa tempus consectetur venenatis.
+            </div>
+
+        </div>
+    </section>
+</body>
+
+</html>

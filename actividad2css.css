@@ -1,0 +1,61 @@
+* {
+    font-family: "Marcellus";
+}
+
+body {
+    background-color: #959595;
+    margin: 0;
+}
+
+header {
+    border: 3px solid black;
+    max-width: 90%;
+    height: 200px;
+    text-align: center;
+    font-size: 80px;
+    padding-top: 50px;
+    background-image: url(https://media.ambito.com/p/b55a60d8867f6bfdea6037668922bcca/adjuntos/239/imagenes/040/539/0040539188/alfajores-maicenajpg.jpg);
+    background-repeat: no-repeat;
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-left: auto;
+    margin-right: auto;
+    vertical-align: middle;
+}
+
+nav {
+    margin-top: 5%;
+    float: left;
+    width: 250px;
+}
+
+section {
+    margin-top: 5%;
+    padding-left: 10px;
+    column-count: 2;
+    width: 70%;
+    height: 50%;
+}
+
+.instrucciones {
+    margin: 2px;
+    border: 2px;
+    break-inside: avoid-column;
+    /* display: inline-block; */
+}
+
+img {
+    float: right;
+}
+
+footer {
+    width: 100%;
+    font-size: 10px;
+    text-align: center;
+    background-color: lightgray;
+    padding: 5px;
+}
+
+h2 {
+    margin: 0 auto;
+    }
